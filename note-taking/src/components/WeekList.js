@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Tabs, { tabsClasses } from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import "react-tabs/style/react-tabs.css";
+
 import Agenda from "./Agenda";
 import TextBox from "../TextBox";
 
@@ -60,13 +60,13 @@ const Week = ({ calendar, id }) => {
 
         <Tab label="Sunday" />
       </Tabs>
-      {daySelected === 0 && <TextBox tasks={tasks} />}
-      {daySelected === 1 && <TextBox tasks={tasks} />}
-      {daySelected === 2 && <TextBox tasks={tasks} />}
-      {daySelected === 3 && <TextBox tasks={tasks} />}
-      {daySelected === 4 && <TextBox tasks={tasks} />}
-      {daySelected === 5 && <TextBox tasks={tasks} />}
-      {daySelected === 6 && <TextBox tasks={tasks} />}
+      {daySelected === 0 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 1 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 2 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 3 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 4 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 5 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 6 && <TextBox tasks={tasks} setText={setText} />}
     </div>
   );
 };

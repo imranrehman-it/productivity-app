@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Tabs, { tabsClasses } from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import "react-tabs/style/react-tabs.css";
+
 import Week from "./WeekList";
 
 const Agenda = () => {
