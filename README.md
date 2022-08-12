@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# Getting Started with Productivity App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+enter the project directory, you can run:
+### 'cd note-taking'
+to enter the project directory
 
 ### `npm start`
 
