@@ -52,7 +52,6 @@ code {
   font-family: monaco, Consolas, Lucida Console, monospace;
   font-size: 16px;
   width: fill;
-  height: fill;
 }
 
 textarea {
@@ -187,11 +186,13 @@ textarea:focus {
   justify-content: end;
 }
 
-.text-box h3 {
-  margin: none !important;
+.task {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-.task {
+.add-task {
   display: flex;
   justify-content: space-between;
   flex-direction: row;

@@ -1,6 +1,6 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 
-import { MdDeleteForever, MdSettingsApplications } from "react-icons/md";
+import { MdDeleteForever, MdCheckCircle } from "react-icons/md";
 import { MdOutlineSentimentSatisfiedAlt } from "react-icons/md";
 
 const TextBox = ({ tasks, calendar, id, setText }) => {
@@ -19,9 +19,10 @@ const TextBox = ({ tasks, calendar, id, setText }) => {
   };
 
   const addTask = () => {
-    const newArray = tasks.push(addText);
-    setAddTask("");
-    console.log(addTask);
+    if (addText.trim().length > 0) {
+      const newArray = tasks.push(addText);
+      setAddTask("");
+    }
   };
 
   return (
@@ -37,11 +38,14 @@ const TextBox = ({ tasks, calendar, id, setText }) => {
           );
         })}
       </ul>
-      <textarea
-        placeholder="Type and add note"
-        onChange={changeHandler}
-      ></textarea>
-      <MdOutlineSentimentSatisfiedAlt onClick={addTask} />
+      <div className="add-task">
+        <textarea
+          placeholder="Type and add note"
+          onChange={changeHandler}
+          value={addText}
+        ></textarea>
+        <MdCheckCircle size="1.5em" onClick={addTask} />
+      </div>
     </div>
   );
 };
