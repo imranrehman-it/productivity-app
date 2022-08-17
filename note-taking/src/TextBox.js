@@ -3,15 +3,13 @@ import { React, useEffect, useState } from "react";
 import { MdDeleteForever, MdCheckCircle } from "react-icons/md";
 import { MdOutlineSentimentSatisfiedAlt } from "react-icons/md";
 
-const TextBox = ({ tasks, calendar, id, setText }) => {
+const TextBox = ({ tasks, calendar, idDay, idWeek, setText }) => {
   const [addText, setAddTask] = useState("");
 
   const deleteHandler = (task) => {
     const newArray = tasks.filter(function (item) {
       return item != task;
     });
-
-    setText(newArray);
   };
 
   const changeHandler = (event) => {

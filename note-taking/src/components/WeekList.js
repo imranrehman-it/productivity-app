@@ -6,40 +6,34 @@ import Tab from "@mui/material/Tab";
 import Agenda from "./Agenda";
 import TextBox from "../TextBox";
 
-const Week = ({ calendar, id }) => {
+const Week = ({ calendar, id, weekTasks }) => {
   const [daySelected, setDaySelected] = useState(0);
 
-  const found = calendar.find((obj) => {
-    return obj.id === id;
-  });
-
-  console.log(found);
-
-  const [tasks, setText] = useState(found.monText);
+  const [tasks, setText] = useState(weekTasks.monText);
 
   const handleChange = (event, newValue) => {
     setDaySelected(newValue);
 
     if (newValue == 0) {
-      setText(found.monText);
+      setText(weekTasks.monText);
     }
     if (newValue == 1) {
-      setText(found.tuesText);
+      setText(weekTasks.tuesText);
     }
     if (newValue == 2) {
-      setText(found.wedText);
+      setText(weekTasks.wedText);
     }
     if (newValue == 3) {
-      setText(found.thurText);
+      setText(weekTasks.thurText);
     }
     if (newValue == 4) {
-      setText(found.friText);
+      setText(weekTasks.friText);
     }
     if (newValue == 5) {
-      setText(found.satText);
+      setText(weekTasks.satText);
     }
     if (newValue == 6) {
-      setText(found.sunText);
+      setText(weekTasks.sunText);
     }
   };
 
@@ -60,13 +54,69 @@ const Week = ({ calendar, id }) => {
 
         <Tab label="Sunday" />
       </Tabs>
-      {daySelected === 0 && <TextBox tasks={tasks} setText={setText} />}
-      {daySelected === 1 && <TextBox tasks={tasks} setText={setText} />}
-      {daySelected === 2 && <TextBox tasks={tasks} setText={setText} />}
-      {daySelected === 3 && <TextBox tasks={tasks} setText={setText} />}
-      {daySelected === 4 && <TextBox tasks={tasks} setText={setText} />}
-      {daySelected === 5 && <TextBox tasks={tasks} setText={setText} />}
-      {daySelected === 6 && <TextBox tasks={tasks} setText={setText} />}
+      {daySelected === 0 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.monText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
+      {daySelected === 1 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.tuesText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
+      {daySelected === 2 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.wedText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
+      {daySelected === 3 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.thurText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
+      {daySelected === 4 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.friText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
+      {daySelected === 5 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.satText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
+      {daySelected === 6 && (
+        <TextBox
+          calendar={calendar}
+          tasks={weekTasks.sunText}
+          setText={setText}
+          idDay={daySelected}
+          idWeek={id}
+        />
+      )}
     </div>
   );
 };
