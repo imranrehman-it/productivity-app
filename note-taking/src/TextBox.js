@@ -1,15 +1,17 @@
 import { React, useEffect, useState } from "react";
-
+import calendar from "./components/calendar";
 import { MdDeleteForever, MdCheckCircle } from "react-icons/md";
 import { MdOutlineSentimentSatisfiedAlt } from "react-icons/md";
 
-const TextBox = ({ tasks, calendar, idDay, idWeek, setText }) => {
+const TextBox = ({ tasks, calendaar, idDay, idWeek, setText }) => {
   const [addText, setAddTask] = useState("");
 
   const deleteHandler = (task) => {
     const newArray = tasks.filter(function (item) {
       return item != task;
     });
+
+    setText(newArray);
   };
 
   const changeHandler = (event) => {
@@ -20,6 +22,7 @@ const TextBox = ({ tasks, calendar, idDay, idWeek, setText }) => {
     if (addText.trim().length > 0) {
       const newArray = tasks.push(addText);
       setAddTask("");
+      setText(newArray);
     }
   };
 
