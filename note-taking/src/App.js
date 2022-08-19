@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
 import Search from "./components/Search";
 import Agenda from "./components/Agenda";
+import Journal from "./components/Journal";
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -65,6 +66,7 @@ const App = () => {
       <h1>Agenda</h1>
       <Agenda />
       <h1>Content</h1>
+      <Journal />
     </div>
   );
 };
