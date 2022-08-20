@@ -81,7 +81,6 @@ const TabsList = styled(TabsListUnstyled)`
   flex-direction: column;
   align-content: space-between;
   width: 30%;
-  border-radius: 20px;
 `;
 
 const Journal = () => {
