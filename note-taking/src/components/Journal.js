@@ -4,11 +4,12 @@ import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
 import TabsUnstyled from "@mui/base/TabsUnstyled";
 import JournalTab from "./JournalTab";
 import JournalContent from "./JournalContent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TabsListUnstyled from "@mui/base/TabsListUnstyled";
 import { styled } from "@mui/system";
 import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
 import { tabUnstyledClasses } from "@mui/base/TabUnstyled";
+import AddJournal from "./AddJournal";
 
 const blue = {
   50: "#F0F7FF",
@@ -84,32 +85,88 @@ const TabsList = styled(TabsListUnstyled)`
 `;
 
 const Journal = () => {
+  const [journalData, setData] = useState([
+    {
+      id: 0,
+      title: "First Journal",
+      date: "2022-08-18",
+      content:
+        "This is some text within the journal, this journal is the first journal we are testing written on 2022-08-18",
+    },
+    {
+      id: 1,
+      title: "Second Journal",
+      date: "2022-08-19",
+      content:
+        "This is some text within the journal, this journal is the second journal we are testing written on 2022-08-18",
+    },
+    {
+      id: 2,
+      title: "Third Journal",
+      date: "2022-08-20",
+      content:
+        "This is some text within the journal, this journal is the third journal we are testing written on 2022-08-18",
+    },
+  ]);
+
+  const saveData = (text, id, title, date) => {
+    const newArray = journalData.map((obj) => {
+      if (obj.id === id) {
+        return { ...obj, content: text, title: title, date: date };
+      }
+      return obj;
+    });
+
+    setData(newArray);
+  };
+
+  const newJournal = () => {
+    const newObject = {
+      id: journalData.length,
+      title: "Untitled",
+      date: "today",
+      content: "",
+    };
+
+    setData([...journalData, newObject]);
+  };
+
+  const deleteJournal = (id) => {
+    console.log(id);
+  };
+
   const [tab, setTab] = useState("0");
 
   return (
-    <Tabs defaultValue={0}>
-      <TabsList>
+    <>
+      <AddJournal newJournal={newJournal} />
+      <Tabs defaultValue={0}>
+        <TabsList>
+          {journalData.map((journal) => {
+            return (
+              <Tab>
+                <JournalTab title={journal.title} date={journal.date} />
+              </Tab>
+            );
+          })}
+        </TabsList>
+
         {journalData.map((journal) => {
           return (
-            <Tab>
-              <JournalTab title={journal.title} date={journal.date} />
-            </Tab>
+            <TabPanel value={journal.id}>
+              <JournalContent
+                title={journal.title}
+                date={journal.date}
+                content={journal.content}
+                id={journal.id}
+                saveData={saveData}
+                deleteJournal={deleteJournal}
+              />
+            </TabPanel>
           );
         })}
-      </TabsList>
-
-      {journalData.map((journal) => {
-        return (
-          <TabPanel value={journal.id}>
-            <JournalContent
-              title={journal.title}
-              date={journal.date}
-              content={journal.content}
-            />
-          </TabPanel>
-        );
-      })}
-    </Tabs>
+      </Tabs>
+    </>
   );
 };
 

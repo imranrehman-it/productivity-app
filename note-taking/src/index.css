@@ -208,3 +208,25 @@ textarea:focus {
 .journal-content h2 {
   margin: 0.25rem;
 }
+
+.journal-create-note {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.journal-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.journal-title textarea {
+  width: 80%;
+  height: fit-content;
+  font-size: 1.5rem;
+}
+.journal-title h5 {
+  width: fit-content;
+  height: fit-content;
+  margin: 0px;
+}

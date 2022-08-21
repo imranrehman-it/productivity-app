@@ -65,7 +65,7 @@ const App = () => {
       />
       <h1>Agenda</h1>
       <Agenda />
-      <h1>Content</h1>
+      <h1>Journal</h1>
       <Journal />
     </div>
   );

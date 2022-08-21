@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const journalData = [
   {
     id: 0,
@@ -21,5 +23,13 @@ const journalData = [
       "This is some text within the journal, this journal is the third journal we are testing written on 2022-08-18",
   },
 ];
+
+export const saveData = (text, id) => {
+  journalData.map((obj) => {
+    if (obj.id === id) {
+      obj.content = text;
+    }
+  });
+};
 
 export default journalData;
