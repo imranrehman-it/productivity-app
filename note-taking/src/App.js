@@ -63,10 +63,10 @@ const App = () => {
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
       />
-      <h1>Agenda</h1>
-      <Agenda />
       <h1>Journal</h1>
       <Journal />
+      <h1>Agenda</h1>
+      <Agenda />
     </div>
   );
 };

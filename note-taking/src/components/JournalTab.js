@@ -6,7 +6,7 @@ const JournalTab = ({ title, date, sampleText }) => {
       <div className="journal-tab">
         <text>{title.slice(0, 40)}</text>
         <text className="date">{date}</text>
-        <text className="sample-text">{sampleText.slice(0, 20) + "..."}</text>
+        <text className="sample-text">{sampleText.slice(0, 30) + "..."}</text>
       </div>
     </div>
   );

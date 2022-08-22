@@ -32,7 +32,7 @@ const Tabs = styled(TabsUnstyled)`
   flex-direction: row;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
   rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-  margin-bottom: 10rem;
+  margin-bottom: 0rem;
   border-radius: 5px;
 `;
 //indicidual tabs
@@ -52,8 +52,7 @@ const Tab = styled(TabUnstyled)`
 
   &:hover {
     background-color: #fffab2;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   }
 
   &:focus {
@@ -143,9 +142,7 @@ const Journal = () => {
     setData([...journalData, newObject]);
   };
 
-  const deleteJournal = (id) => {
-    console.log(id);
-  };
+  const deleteJournal = (id) => {};
 
   const [tab, setTab] = useState("0");
 
