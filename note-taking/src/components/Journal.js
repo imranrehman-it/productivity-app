@@ -10,6 +10,7 @@ import { styled } from "@mui/system";
 import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
 import { tabUnstyledClasses } from "@mui/base/TabUnstyled";
 import AddJournal from "./AddJournal";
+import Box from "@mui/material/Box";
 
 const blue = {
   50: "#F0F7FF",
@@ -30,7 +31,7 @@ const Tabs = styled(TabsUnstyled)`
   background-color: #fef68a
   flex-direction: row;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   margin-bottom: 10rem;
   border-radius: 5px;
 `;
@@ -46,9 +47,13 @@ const Tab = styled(TabUnstyled)`
   border: none;
   display: flex;
   justify-content: left;
+  border-radius: 5px;
+  border-bottom: black 0.5px solid;
 
   &:hover {
     background-color: #fffab2;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   }
 
   &:focus {
@@ -73,6 +78,11 @@ const TabPanel = styled(TabPanelUnstyled)`
   font-size: 0.875rem;
   background-color: #fef68a;
   padding: 0.25rem 1rem 1rem 0.25rem;
+  min-height: 400px;
+  border: 0px 0px 0px 2px solid black;
+  border-left: black 1px solid;
+  border-radius: 0px 5px 5px 0px;
+  height: fill;
 `;
 
 const TabsList = styled(TabsListUnstyled)`
@@ -82,6 +92,8 @@ const TabsList = styled(TabsListUnstyled)`
   flex-direction: column;
   align-content: space-between;
   width: 30%;
+  border-radius: 5px 0px 0px 5px;
+  max-height: 500px;
 `;
 
 const Journal = () => {
@@ -117,7 +129,7 @@ const Journal = () => {
       return obj;
     });
 
-    setData(newArray);
+    setData([...newArray]);
   };
 
   const newJournal = () => {
@@ -138,17 +150,21 @@ const Journal = () => {
   const [tab, setTab] = useState("0");
 
   return (
-    <>
-      <AddJournal newJournal={newJournal} />
-      <Tabs defaultValue={0}>
+    <div className="journal-body">
+      <Tabs variant="scrollable" defaultValue={0} scrollButtons={true}>
         <TabsList>
           {journalData.map((journal) => {
             return (
               <Tab>
-                <JournalTab title={journal.title} date={journal.date} />
+                <JournalTab
+                  title={journal.title}
+                  date={journal.date}
+                  sampleText={journal.content}
+                />
               </Tab>
             );
           })}
+          <AddJournal newJournal={newJournal} />
         </TabsList>
 
         {journalData.map((journal) => {
@@ -166,7 +182,7 @@ const Journal = () => {
           );
         })}
       </Tabs>
-    </>
+    </div>
   );
 };
 

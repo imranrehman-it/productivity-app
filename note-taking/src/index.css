@@ -212,7 +212,9 @@ textarea:focus {
 .journal-create-note {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: left;
+  padding: 1rem;
+  border-top: black 0.5px solid;
 }
 
 .journal-title {
@@ -229,4 +231,51 @@ textarea:focus {
   width: fit-content;
   height: fit-content;
   margin: 0px;
+}
+
+.journal-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.journal-tab text {
+  display: flex;
+  padding: 0rem 1rem 0rem 0rem;
+  text-align: left;
+  padding: 5px;
+  overflow-wrap: break-word;
+}
+
+.journal-tab .date {
+  font-size: x-small;
+}
+
+.journal-tab .title {
+  font-size: small;
+}
+
+.journal-body {
+  min-height: 400px;
+}
+.fill textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.sample-text {
+  display: flex;
+  font-size: xx-small;
+  margin: 0px;
+  justify-content: left;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-content-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }

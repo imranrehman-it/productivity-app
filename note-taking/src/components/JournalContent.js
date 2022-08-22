@@ -1,6 +1,6 @@
 import journalData from "./journalData";
-import { useState } from "react";
-import { MdDeleteForever } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { MdDeleteForever, MdImage } from "react-icons/md";
 
 const JournalContent = ({
   title,
@@ -17,26 +17,37 @@ const JournalContent = ({
     setText(event.target.value);
     saveData(text, id, name, date);
   };
+  useEffect(() => {
+    saveData(text, id, name, date);
+  }, [text]);
 
   const changeTitle = (event) => {
     setName(event.target.value);
     console.log(name);
-    saveData(text, id, name, date);
   };
+  useEffect(() => {
+    saveData(text, id, name, date);
+  }, [name]);
 
   return (
     <div className="journal-content">
       <div className="journal-title">
         <textarea value={name} onChange={changeTitle}></textarea>
-        <MdDeleteForever size="1rem" onClick={deleteJournal(id)} />
         <h5>{date}</h5>
       </div>
 
       <textarea
+        rows="15"
+        cols="10"
+        className="fill"
         placeholder="Begin typing you new journal..."
         onChange={changeHandler}
         value={text}
       ></textarea>
+      <div className="journal-content-footer">
+        <MdImage size="1rem" />
+        <MdDeleteForever size="1rem" onClick={deleteJournal(id)} />
+      </div>
     </div>
   );
 };
