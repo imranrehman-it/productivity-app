@@ -2,6 +2,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { MdOutlineSentimentSatisfiedAlt } from "react-icons/md";
 import { Tooltip, IconButton, DeleteIcon } from "@mui/material";
 
+//note section of code
 const Note = ({ id, text, date, handleDeleteNote }) => {
   return (
     <div>
