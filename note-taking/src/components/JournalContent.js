@@ -24,6 +24,7 @@ const JournalContent = ({
   const changeTitle = (event) => {
     setName(event.target.value);
     console.log(name);
+    console.log(name);
   };
   useEffect(() => {
     saveData(text, id, name, date);

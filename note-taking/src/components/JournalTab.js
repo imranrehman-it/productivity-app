@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 const JournalTab = ({ title, date, sampleText }) => {
   return (
-    <div className="col">
+    <div>
       <div className="journal-tab">
         <text>{title.slice(0, 40)}</text>
         <text className="date">{date}</text>
